@@ -2,8 +2,8 @@ FROM gitpod/workspace-full
                     
 USER gitpod
 
-RUN pyenv uninstall 2.7.17
-RUN pyenv uninstall 3.8.2
+RUN yes "" | pyenv uninstall 2.7.17
+RUN yes "" | pyenv uninstall 3.8.2
 RUN pyenv install 3.7.7
 RUN pyenv global 3.7.7
 # Install custom tools, runtime, etc. using apt-get

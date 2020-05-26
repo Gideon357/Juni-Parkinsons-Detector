@@ -1,5 +1,5 @@
 
-# Juni Hackathon 
+# Juni Hackathon Submission
 
 <p align="center">
 <a href="https://travis-ci.org/github/Gideon357/JuniHackathonFinal"><img src="https://img.shields.io/travis/gideon357/JuniHackathonFinal?style=flat"></img></a> <a href='https://coveralls.io/github/Gideon357/JuniHackathonFinal?branch=master'><img src='https://coveralls.io/repos/github/Gideon357/JuniHackathonFinal/badge.svg?branch=master' alt='Coverage Status' /></a>
@@ -9,11 +9,28 @@
 <img src="https://img.shields.io/badge/license-AGPL--3.0-blue"></img>
 </p>
 
-A Flask / SurveyJS app that uses Keras to detect Parkison's Disease
+Welcome to my submision to the Juni Learning Hackathon (May 2020, JV division). This is a Flask / SurveyJS app that uses a [PyTorch](https://pytorch.org) model trained using [FastAI](https://fast.ai) to detect Parkison's Disease. My entry video is available [here](https://google.com).
 
-## Entry Video
-[![Entry Video](http://img.youtube.com/vi/ScMzIvxBSi4/0.jpg)](http://www.youtube.com/watch?v=ScMzIvxBSi4 "Entry Video")
+## Who
+
+My name is Gideon Grinberg, and I have been programming for ~9 months. My first programming language was Python, but while we are all out of school, I have learned Javascript, [SQLite](https://sqlite.org), and [Flutter](https://flutter.dev) online, and I am really happy to have gotten to use these in this project, even if not every piece made it into the final version.
+
+## What
+
+I made a CNN using PyTorch and FastAI. The CNN detects Parkinson's Disease based on a Archimedes Spiral drawn by the test subject. It is my hope that this can be used as a cheap, at-home test that could allow for earlier detection of this disease. Please see the [acknowledgements]("# Acknowledgements") section for more information on the methodolgies the program uses.
 
 ## Code Coverage
+
 ![Codecov Chart](https://via.placeholder.com/150)
 
+## Acknowledgements
+
+The dataset is availble under the Creative Commons License, and based on a 2019 paper. I modified the dataset's structure for this project. I got the idea for this project from [PyImageSearch](https://pyimagesearch.com)
+
+### References
+
+Mader, K. S. (2019, May 29). Parkinson's Drawings Dataset.
+
+Zham, P., Kumar, D. K., Dabnichki, P., Arjunan, S. P., & Raghav, S. (2017). Distinguishing Different Stages of Parkinson’s Disease Using Composite Index of Speed and Pen-Pressure of Sketching a Spiral. Frontiers in Neurology, 8. doi: 10.3389/fneur.2017.00435
+
+Monty, Rosebrock, A., Yuvrajsingh, Sanjay, Ziri, Deshmukh, S. R., … Arun. (2020, April 18). Detecting Parkinson's Disease with OpenCV, Computer Vision, and the Spiral/Wave Test. Retrieved from https://www.pyimagesearch.com/2019/04/29/detecting-parkinsons-disease-with-opencv-computer-vision-and-the-spiral-wave-test

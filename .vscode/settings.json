@@ -1,4 +1,7 @@
 {
     "python.pythonPath": "/Users/GideonGrinberg/.pyenv/shims/python",
     "html.validate.scripts": false,
+    "python.linting.pylintArgs": [
+        "--disable=W0614"
+    ]
 }

@@ -2,6 +2,7 @@
     "python.pythonPath": "/Users/GideonGrinberg/.pyenv/shims/python",
     "html.validate.scripts": false,
     "python.linting.pylintArgs": [
-        "--disable=W0614"
-    ]
+        "--disable=W0614,C0114,C0115,C0116"
+    ],
+    "python.formatting.provider": "black"
 }

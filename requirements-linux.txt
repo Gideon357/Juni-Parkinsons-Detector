@@ -1,10 +1,5 @@
 flask
-imutils
-NumPy
-OpenCV
 Pillow >= 7
-Scikit-image
-Scikit-learn
 
 # FastAI no CUDA install. See https://pytorch.org for other methods.
 torch==1.5.0+cpu

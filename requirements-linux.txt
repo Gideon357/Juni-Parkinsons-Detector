@@ -1,6 +1,13 @@
+flask
+imutils
+NumPy
+OpenCV
 Pillow >= 7
+Scikit-image
+Scikit-learn
+
+# FastAI no CUDA install. See https://pytorch.org for other methods.
 torch==1.5.0+cpu
 torchvision==0.6.0+cpu
 https://download.pytorch.org/whl/torch_stable.html
 fastai
-sanic

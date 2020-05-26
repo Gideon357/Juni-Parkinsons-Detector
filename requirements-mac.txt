@@ -1,0 +1,5 @@
+Pillow >= 7
+torch
+torchvision
+fastai
+sanic

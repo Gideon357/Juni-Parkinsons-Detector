@@ -1,9 +1,0 @@
-language: python
-install:
-  - pip install -r requirements_dev.txt
-  - pip install -r requirements.txt
-script:
-  - pytest --cov
-  - coveralls
-after:
-  - coveralls

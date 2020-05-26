@@ -2,4 +2,5 @@ black==18.9b0
 pytest==4.3.0
 coveralls==1.11.1
 pytest-cov==2.6.1
-pre-commit==2.4.0
+pytest-flask==0.10.0
+pytest-mock==1.10.0

@@ -1,3 +1,2 @@
-backend/old_website/** linguist-vendored
 backend/old_website/templates/* linguist-vendored
 backend/templates/* linguist-vendored

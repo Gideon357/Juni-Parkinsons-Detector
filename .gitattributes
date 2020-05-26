@@ -1,2 +1,3 @@
 backend/old_website/templates/* linguist-vendored
 backend/templates/* linguist-vendored
+*.ipynb linguist-language = Python

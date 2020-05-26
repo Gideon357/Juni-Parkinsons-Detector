@@ -14,11 +14,7 @@ My name is Gideon Grinberg, and I have been programming for ~9 months. My first 
 
 ## What
 
-I made a CNN using PyTorch and FastAI. The CNN detects Parkinson's Disease based on a Archimedes Spiral drawn by the test subject. It is my hope that this can be used as a cheap, at-home test that could allow for earlier detection of this disease. Please see the [acknowledgements]("# Acknowledgements") section for more information on the methodolgies the program uses.
-
-## Code Coverage
-
-![Codecov Chart](https://via.placeholder.com/150)
+I made a CNN using PyTorch and FastAI. The CNN detects Parkinson's Disease based on a Archimedes Spiral drawn by the test subject. It is my hope that this can be used as a cheap, at-home test that could allow for earlier detection of this disease. Please see the [acknowledgements]("#Acknowledgements") section for more information on the methodolgies the program uses.
 
 ## Acknowledgements
 

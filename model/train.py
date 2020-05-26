@@ -1,64 +1,27 @@
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D
-from tensorflow.keras.layers import Activation, Dropout, Flatten, Dense
-from tensorflow.keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
+from fastai import * # import the FastAI v3 lib which includes pytorch
+from fastai.vision import  * # import all of the computer vision related libs from vision 
 
-model = Sequential()
-model.add(Conv2D(32, (3, 3), input_shape=(3, 150, 150)))
-model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
+import warnings
+warnings.filterwarnings("ignore")
 
-model.add(Conv2D(32, (3, 3)))
-model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
+BATCH_SIZE = 64
+IMG_SIZE = 224
+WORKERS = 0 
+DATA_PATH_STR = './dataset/'
+DATA_PATH_OBJ = Path(DATA_PATH_STR)
 
-model.add(Conv2D(64, (3, 3)))
-model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
+tfms = get_transforms() # standard data augmentation ()
 
-# the model so far outputs 3D feature maps (height, width, features)
-model.add(Flatten())  # this converts our 3D feature maps to 1D feature vectors
-model.add(Dense(64))
-model.add(Activation('relu'))
-model.add(Dropout(0.5))
-model.add(Dense(1))
-model.add(Activation('sigmoid'))
+data = (ImageList.from_folder(DATA_PATH_OBJ)        # get data from path object
+        .split_by_rand_pct()                        # separate 20% of data for validation set
+        .label_from_folder()                          # label based on directory
+        .transform(tfms, size=IMG_SIZE)                   # added image data augmentation
+        .databunch(bs=BATCH_SIZE, num_workers=WORKERS)    # create ImageDataBunch
+        .normalize(imagenet_stats))                   # normalize RGB vals using imagenet stats
 
-model.compile(loss='binary_crossentropy',
-              optimizer='rmsprop',
-              metrics=['accuracy'])
 
-batch_size = 16
+learn = cnn_learner(data, models.resnet34, metrics=accuracy, model_dir='./output/')
+learn.fit_one_cycle(10, max_lr = slice(5.74e-03/10))
 
-# this is the augmentation configuration we will use for training
-train_datagen = ImageDataGenerator(
-        zoom_range=0.2,
-        horizontal_flip=True)
-
-# this is the augmentation configuration we will use for testing:
-# only rescaling
-test_datagen = ImageDataGenerator(horizontal_flip=True)
-
-# this is a generator that will read pictures found in
-# subfolers of 'data/train', and indefinitely generate
-# batches of augmented image data
-train_generator = train_datagen.flow_from_directory(
-        'model/dataset/train',  # this is the target directory
-        target_size=(150, 150),  # all images will be resized to 150x150
-        batch_size=batch_size,
-        class_mode='binary')  # since we use binary_crossentropy loss, we need binary labels
-
-# this is a similar generator, for validation data
-validation_generator = test_datagen.flow_from_directory(
-        'model/dataset/test',
-        target_size=(150, 150),
-        batch_size=batch_size,
-        class_mode='binary')
-
-model.fit_generator(
-        train_generator,
-        steps_per_epoch=2000 // batch_size,
-        epochs=50,
-        validation_data=validation_generator,
-        validation_steps=800 // batch_size)
-model.save_weights('first_try.h5')  # always save your weights after training or during training
+learn.export('stage-1-93.pkl')
+learn.save('stage-1-93')

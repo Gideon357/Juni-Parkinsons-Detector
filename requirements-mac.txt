@@ -1,6 +1,0 @@
-flask
-Pillow >= 7
-
-# FastAI no CUDA install. See https://pytorch.org for other methods.
-torch
-torchvision

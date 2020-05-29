@@ -1,12 +1,7 @@
 
 # Juni Hackathon Submission
 
-<p align="center">
- <a href="https://gitpod.io/#github.com/gideon357/JuniHackathonFinal"><img src="https://img.shields.io/badge/Gitpod%20-Ready%20to%20Code-blue?style=for-the-badge&logo=gitpod"></img></a> <a href="https://pypi.org/project/black/"><img src="https://img.shields.io/badge/code%20style-black-black?style=for-the-badge"></img></a>
- <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/gideon357/JuniHackathonFinal?style=for-the-badge"> <img src="https://img.shields.io/badge/license-AGPL--3.0-blue?style=for-the-badge"></img>
-</p>
-
-Welcome to my submision to the Juni Learning Hackathon (May 2020, JV division). This is a Flask / SurveyJS app that uses a [PyTorch](https://pytorch.org) model trained using [FastAI](https://fast.ai) to detect Parkison's Disease. My entry video is available [here](https://google.com).
+Welcome to my submision to the Juni Learning Hackathon (May 2020, JV division). This is a Flask app that uses a [Keras](https://keras.io) DNN to detect Parkison's Disease. My entry video is available [here](https://google.com).
 
 ## Who
 

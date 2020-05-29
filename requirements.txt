@@ -1,6 +1,0 @@
-black
-Flask
-gunicorn
-fastai
-torch
-flask_cors

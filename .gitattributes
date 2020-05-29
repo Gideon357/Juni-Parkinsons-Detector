@@ -1,3 +1,6 @@
 *.ipynb linguist-language=Python
 *.yaml linguist-language=Python
 .*.* linguist-language=Python
+*.pkl linguist-language=Python
+*.pth linguist-language=Python
+*.png linguist-language=Python

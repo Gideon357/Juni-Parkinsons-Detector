@@ -10,15 +10,14 @@ from keras.models import Model,load_model
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ReduceLROnPlateau,EarlyStopping
 
-from scipy.misc import toimage, imresize
 from skimage import exposure
 from PIL import Image
 import cv2
 
-spirals_train_folder = '../input/drawings/spiral/training'
-spirals_val_folder = '../input/drawings/spiral/testing'
-waves_train_folder = '../input/drawings/wave/training'
-waves_val_folder = '../input/drawings/wave/testing'
+spirals_train_folder = 'model/dataset/spiral/training'
+spirals_val_folder = 'model/dataset/spiral/testing'
+waves_train_folder = 'model/dataset/wave/training'
+waves_val_folder = 'model/dataset/wave/testing'
 
 batch_size = 24
 

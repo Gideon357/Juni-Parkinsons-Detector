@@ -1,8 +1,9 @@
 {
-    "python.pythonPath": "/Users/GideonGrinberg/.pyenv/shims/python",
+    "python.pythonPath": "/Users/GideonGrinberg/.local/share/virtualenvs/JuniHackathonFinal-43FDkzpb/bin/python",
     "html.validate.scripts": false,
     "python.linting.pylintArgs": [
         "--disable=W0614,C0114,C0115,C0116"
     ],
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "python.venvPath": "~/.cache/pypoetry/virtualenvs",
 }

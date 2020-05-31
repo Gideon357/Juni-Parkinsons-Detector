@@ -1,34 +1,32 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Parkinson's Detector</title>
-    <!---jQuery--->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% extends "base.html" %} {% block content %}
 
-    <!--SurveyJS-->
-    <link
-      href="https://surveyjs.azureedge.net/1.7.7/survey.css"
-      type="text/css"
-      rel="stylesheet"
-    />
-    <script src="https://surveyjs.azureedge.net/1.7.7/survey.jquery.min.js"></script>
-  </head>
-  <body>
-    <div id="surveyContainer"></div>
-    <script>
-      var surveyJSON = {"pages":[{"name":"page1","elements":[{"type":"boolean","name":"disclaimer","title":"I understand that, while based on science, this is not medical advice.","isRequired":true,"labelTrue":"Yes","labelFalse":"No"},{"type":"radiogroup","name":"parkinsons","title":"Have you been diagnosed with Parkinson's Disease or Distonic Tremor?","description":"This will not affect results, but will be used to improve the algorithm. ","isRequired":true,"choices":[{"value":"item1","text":"Yes"},{"value":"item2","text":"No"},{"value":"item3","text":"Prefer Not to Say"}]},{"type":"html","name":"question1","html":"<strong> Using your dominant hand, please draw a spiral like the one shown <a href='https://tinyurl.com/spiral-image'>here</a>, and upload it below</strong>"},{"type":"file","name":"question2","title":"Upload the Spiral Here","isRequired":true,"showPreview":false,"maxSize":0}],"title":"Parkinson's Detector","description":"An AI project by Gideon Grinberg"}]}
+<div class="main">
+  <div class="title">
+    <h3>Image Classifier</h3>
+    <!-- <p>
+      <small>A web app demo</small>
+    </p> -->
+  </div>
 
-      function sendDataToServer(survey) {
-          //send Ajax request to your web server.
-          $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-          window.location.href = String("/results?results=" + JSON.stringify(survey.data));
-      };
+  <div class="panel">
+    <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
+    <label for="file-upload" id="file-drag" class="upload-box">
+      <div id="upload-caption">Drop image here or click to select</div>
+      <img id="image-preview" class="hidden" />
+    </label>
+  </div>
+  <div style="margin-bottom: 2rem;">
+    <input type="button" value="Submit" class="button" onclick="submitImage();" />
+    <input type="button" value="Clear" class="button" onclick="clearImage();" />
+  </div>
 
-      var survey = new Survey.Model(surveyJSON);
-      $("#surveyContainer").Survey({
-          model: survey,
-          onComplete: sendDataToServer
-      });
-    </script>
-  </body>
-</html>
+  <div id="image-box">
+    <img id="image-display" />
+    <div id="pred-result" class="hidden"></div>
+    <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
+</div>
+
+{% endblock %}

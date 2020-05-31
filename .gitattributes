@@ -4,3 +4,4 @@
 *.pkl linguist-language=Python
 *.pth linguist-language=Python
 *.png linguist-language=Python
+*.pb filter=lfs diff=lfs merge=lfs -text
